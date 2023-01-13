@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:netflix_clone/component/netflix_custom_loader.dart';
 import 'package:netflix_clone/extension/extenstion.dart';
+import 'package:netflix_clone/screens/login.dart';
 
 class NetflixSplashScreen extends StatefulWidget {
   const NetflixSplashScreen({Key? key}) : super(key: key);
@@ -11,6 +13,20 @@ class NetflixSplashScreen extends StatefulWidget {
 }
 
 class _NetflixSplashScreenState extends State<NetflixSplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  void didChangeDependencies() {
+    Future.delayed(const Duration(seconds: 1), () {
+      GoRouter.of(context).go(Login.path);
+      // context.goNamed('/login');
+    });
+    super.didChangeDependencies();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
